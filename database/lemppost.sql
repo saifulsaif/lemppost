@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 09, 2020 at 12:06 PM
--- Server version: 10.3.23-MariaDB
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Generation Time: Aug 27, 2020 at 07:47 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,42 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `freedownload_boss`
+-- Database: `lemppost`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `categories`
---
-
-CREATE TABLE `categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `icon`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'City', 'images/category/c3.jpg', 'images/category/c3.jpg', '2020-01-20 00:11:35', '2020-01-20 00:11:35'),
-(7, 'Nature', 'images/category/c8.jpg', 'images/category/c8.jpg', '2020-01-31 21:37:47', '2020-01-31 21:37:47'),
-(8, 'Fusion', 'images/category/c7.jpg', 'images/category/c7.jpg', '2020-01-31 21:38:25', '2020-01-31 21:38:25'),
-(9, 'Education', 'images/category/c6.jpg', 'images/category/c6.jpg', '2020-01-31 21:38:58', '2020-01-31 21:38:58'),
-(10, 'Shopping', 'images/category/c5.jpg', 'images/category/c5.jpg', '2020-01-31 21:39:16', '2020-01-31 21:39:16'),
-(12, 'Travailing', 'images/category/c1.jpeg', 'images/category/c1.jpeg', '2020-01-31 21:41:02', '2020-01-31 21:41:02'),
-(13, 'Food', 'images/category/c4.jpg', 'images/category/c4.jpg', '2020-01-31 21:42:00', '2020-01-31 21:42:00'),
-(15, 'Love/Breakup', 'images/category/photo-Love cetagris.jpg', 'images/category/photo-Love cetagris.jpg', '2020-05-28 07:32:51', '2020-05-28 07:32:51'),
-(16, 'Animals/Rust', 'images/category/Untitled.jpg', 'images/category/Untitled.jpg', '2020-05-28 07:58:27', '2020-05-28 07:58:27'),
-(18, 'People', 'images/category/People.jpg', 'images/category/People.jpg', '2020-05-28 08:11:54', '2020-05-28 08:11:54'),
-(19, 'beauty/nature', 'images/category/beauty.nature.jpg', 'images/category/beauty.nature.jpg', '2020-05-28 08:26:26', '2020-05-28 08:26:26'),
-(20, 'fishermen/Beautiful river', 'images/category/fishermen Beautiful river.jpg', 'images/category/fishermen Beautiful river.jpg', '2020-05-28 08:35:17', '2020-05-28 08:35:17'),
-(21, 'Architecture / Buildings', 'images/category/Architecture  Buildings.jpg', 'images/category/Architecture  Buildings.jpg', '2020-05-28 08:48:08', '2020-05-28 08:48:08');
 
 -- --------------------------------------------------------
 
@@ -163,35 +129,33 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_01_04_164641_create_settings_table', 2),
 (5, '2020_01_06_170554_create_sliders_table', 3),
-(6, '2020_01_14_164334_create_categories_table', 4),
-(7, '2020_01_14_164657_create_points_table', 4),
-(8, '2020_01_14_164847_create_photos_table', 4),
 (9, '2020_01_14_165010_create_withdraws_table', 4),
 (10, '2020_01_14_165042_create_links_table', 4),
 (11, '2020_01_14_165415_create_profiles_table', 4),
-(12, '2020_01_14_165446_create_promotions_table', 4),
 (13, '2020_02_05_171112_create_followers_table', 5),
-(14, '2020_06_17_102702_create_tags_table', 5);
+(15, '2020_08_26_171718_create_partners_table', 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movie`
+-- Table structure for table `partners`
 --
 
-CREATE TABLE `movie` (
-  `id` int(11) NOT NULL,
-  `banner` varchar(255) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `partners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `movie`
+-- Dumping data for table `partners`
 --
 
-INSERT INTO `movie` (`id`, `banner`, `link`, `title`) VALUES
-(1, 'images/logo/6.jpg', 'https://gplinks.in/st?api=5de188d82a70ba52f4605cefa1f9ef21b4b49667&url=yourdestinationlink.com', 'Sooryavanshi 2020 Hindi Movie Official Trailer 720p HDRip Free Download');
+INSERT INTO `partners` (`id`, `title`, `logo`, `url`, `created_at`, `updated_at`) VALUES
+(1, 'Images Site', 'images/partner/boss.png', 'http://www.freedownloadimage.com/', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -204,140 +168,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `photos`
---
-
-CREATE TABLE `photos` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `photo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `photos`
---
-
-INSERT INTO `photos` (`id`, `title`, `photo`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
-(3, 'Samsung', 'images/photo/p3.jpg', '2', '1', '2020-01-16 18:04:31', '2020-01-16 18:04:31'),
-(4, 'Samsung', 'images/photo/p9.jpg', '2', '1', '2020-01-16 18:04:50', '2020-01-16 18:04:50'),
-(5, 'phone', 'images/photo/p5.jpg', '2', '1', '2020-01-16 18:05:06', '2020-01-16 18:05:06'),
-(6, 'Samsun phone', 'images/photo/night.jpg', '15', '1', '2020-01-16 18:05:27', '2020-01-16 18:05:27'),
-(17, 'Iphone', 'images/photo/p9.jpg', '15', '1', '2020-01-19 22:40:02', '2020-01-19 22:40:02'),
-(22, 'Samsung', 'images/photo/p2.jpg', '15', '1', '2020-02-01 22:08:56', '2020-02-01 22:08:56'),
-(23, 'new product', 'images/photo/p4.jpg', '2', '1', '2020-02-01 23:53:29', '2020-02-01 23:53:29'),
-(24, 'Iphone', 'images/photo/p1.jpg', '2', '1', '2020-02-02 00:02:25', '2020-02-02 00:02:25'),
-(25, 'product', 'images/photo/p1.jpg', '2', '1', '2020-02-02 23:18:52', '2020-02-02 23:18:52'),
-(26, 'HTC', 'images/photo/p8.jpg', '2', '1', '2020-02-02 23:19:13', '2020-02-02 23:19:13'),
-(49, 'free download mon image', 'images/photo/IMG_20200211_092336.jpg', '22', '9', '2020-02-27 05:46:57', '2020-02-27 05:46:57'),
-(88, '', 'images/photo/IMG_20200211_090902.jpg', '20200345', '0', '2020-03-26 00:00:24', NULL),
-(89, '', 'images/photo/IMG_20200211_090956.jpg', '20200345', '0', '2020-03-26 00:00:41', NULL),
-(90, '', 'images/photo/photo-1478759615268-c5668ad08e3f.jpeg', '20200345', '0', '2020-03-26 00:01:16', NULL),
-(91, '', 'images/photo/IMG_20200211_085924.jpg', '20200345', '0', '2020-03-26 00:01:26', NULL),
-(92, '', 'images/photo/IMG_20200211_092419.jpg', '20200345', '0', '2020-03-26 00:01:45', NULL),
-(93, '', 'images/photo/photo-1487640228478-7a32e30a9e40.jpeg', '20200345', '0', '2020-03-26 00:01:55', NULL),
-(94, '', 'images/photo/IMG_20200211_092336.jpg', '20200345', '0', '2020-03-26 00:02:09', NULL),
-(95, '', 'images/photo/IMG_20200211_090112.jpg', '20200345', '0', '2020-03-26 00:02:23', NULL),
-(96, '', 'images/photo/IMG_20200211_090647.jpg', '20200345', '0', '2020-03-26 00:02:33', NULL),
-(97, '', 'images/photo/IMG_20200211_090753.jpg', '20200345', '0', '2020-03-26 00:02:49', NULL),
-(98, '', 'images/photo/IMG_20200211_091329.jpg', '20200345', '0', '2020-03-26 00:03:01', NULL),
-(99, '', 'images/photo/IMG_20200211_091039.jpg', '20200345', '0', '2020-03-26 00:04:02', NULL),
-(100, 'Peak in the dark of night/ Lonely photo of Gabi night/ Photo of the night', 'images/photo/fantasy-2861107_960_720.jpg', '1', '7', '2020-03-26 11:15:09', '2020-03-26 11:15:09'),
-(101, 'The blue sky of the sky/Photo of the sky / Photo of the color fall sky', 'images/photo/sky-690293_960_720.jpg', '1', '12', '2020-03-26 11:17:19', '2020-03-26 11:17:19'),
-(102, 'Color Fall Follies/Blue butterfly/Photos of nature', 'images/photo/butterfly-2049567_960_720.jpg', '1', '8', '2020-03-26 11:40:47', '2020-03-26 11:40:47'),
-(103, 'Photo standing under the sky/Photo of a bad boy/Very good photo', 'images/photo/cd-cover-4704809_960_720.jpg', '1', '8', '2020-03-26 11:42:01', '2020-03-26 11:42:01'),
-(104, 'Awesome photo/Black Hacker Pick Peak of the Dark World', 'images/photo/fantasy-2847724_960_720.jpg', '1', '1', '2020-03-26 11:42:54', '2020-03-26 11:42:54'),
-(105, 'Bast Photo', 'images/photo/IMG_20200211_091719.jpg', '20200345', '0', '2020-03-26 19:05:03', NULL),
-(106, 'Empty road Road with hills. Black fur road. Free photo.', 'images/photo/4707345_960_720.jpg', '1', '12', '2020-03-28 02:15:20', '2020-03-28 02:15:20'),
-(107, 'Blue sky/ How the sky looks like during development.', 'images/photo/andromeda-galaxy-755442_960_720.jpg', '1', '9', '2020-03-28 02:16:25', '2020-03-28 02:16:25'),
-(108, 'Shower Photo. Free Download Shower Picture. Excellent fly pick four', 'images/photo/niagara-falls-218591_960_720.jpg', '1', '12', '2020-03-28 02:17:31', '2020-03-28 02:17:31'),
-(109, 'Long road Nice road. Free download. Best photo', 'images/photo/r0d_960_720.jpg', '1', '14', '2020-03-28 02:18:27', '2020-03-28 02:18:27'),
-(110, 'Afternoon sky Photo of the sun sinking sky. Free download sky photo', 'images/photo/Ued_3.jpg', '1', '9', '2020-03-28 02:20:07', '2020-03-28 02:20:07'),
-(111, 'Photo of river with hill. Photo of high hill. Mountain photo download', 'images/photo/Unled_7.jpg', '1', '8', '2020-03-28 02:21:00', '2020-03-28 02:21:00'),
-(112, 'Photo of Nature Environment. Free Download Photo. Free Download Sky Picture', 'images/photo/Untdfbitled_8.jpg', '1', '7', '2020-03-28 02:21:41', '2020-03-28 02:21:41'),
-(113, 'Photo of stone. Photo of stone with water. Free download photo.', 'images/photo/Unti_4.jpg', '1', '14', '2020-03-28 02:22:32', '2020-03-28 02:22:32'),
-(114, 'Blue stone. Free download stone photo. Photo of stone over the sea', 'images/photo/Untitl;;lgkled_6.jpg', '1', '9', '2020-03-28 02:23:21', '2020-03-28 02:23:21'),
-(115, 'Black stone. Stone Mine. Free Download Stone Photo. Best stone photo', 'images/photo/Untitlfyukj.ed_5.jpg', '1', '7', '2020-03-28 02:24:10', '2020-03-28 02:24:10'),
-(116, 'Peak standing alone. Peak standing under the sky. Your filling sky', 'images/photo/ntitled_2.jpg', '1', '14', '2020-03-28 07:57:46', '2020-03-28 07:57:46'),
-(117, 'Road inside the hill. Photo of curved road. Download photo of the road', 'images/photo/RBTYNY.jpg', '1', '7', '2020-03-28 07:58:53', '2020-03-28 07:58:53'),
-(118, 'Mountain photo download. Hills of green color. Download mountain photos', 'images/photo/Unted_3.jpg', '1', '8', '2020-03-28 08:00:52', '2020-03-28 08:00:52'),
-(119, 'Jungle photos. Download photos in the jungle', 'images/photo/Untied_4.jpg', '1', '9', '2020-03-28 08:02:06', '2020-03-28 08:02:06'),
-(120, 'Bad photo. Download a photo. Download photo', 'images/photo/Untied_5.jpg', '1', '9', '2020-03-28 08:02:59', '2020-03-28 08:02:59'),
-(121, 'Moon Photo. Free Download Photo. Download Moon Photos.', 'images/photo/Untitld_1.jpg', '1', '7', '2020-03-28 08:05:55', '2020-03-28 08:05:55'),
-(122, 'Beautiful photo Green nature photo. Download photos. Free download green nature photos', 'images/photo/Untitled.jpg', '1', '1', '2020-03-28 08:07:04', '2020-03-28 08:07:04'),
-(123, 'Photo of the mountainous region. Download hill area photo. Free download photo', 'images/photo/Untitled_2.jpg', '1', '9', '2020-03-28 08:07:41', '2020-03-28 08:07:41'),
-(124, 'Home by the sea. Red Lilymaar Photo Download. Free Download Photo', 'images/photo/UntitlGBTHHed_1.jpg', '1', '8', '2020-03-28 08:08:49', '2020-03-28 08:08:49'),
-(125, 'Photo of the mountainous region. Download hill area photo. Free download pho', 'images/photo/Utitled_3.jpg', '1', '8', '2020-03-28 08:09:52', '2020-03-28 08:09:52'),
-(126, 'flower ', 'images/photo/IMG_20200326_171109.jpg', '2', '0', '2020-04-09 18:22:22', NULL),
-(127, 'Bad Boy à¥¤Free Download Photosà¥¤ Good Photos à¥¤Best Imageà¥¤', 'images/photo/Screenshot_2020-02-17-15-53-04-1.png', '20200448', '0', '2020-05-01 06:09:00', NULL),
-(128, 'Afternoon skyà¥¤ Beautiful afternoon photo à¥¤ Free download photos à¥¤Bed boy', 'images/photo/Screenshot_2020-02-17-15-52-56-1.png', '20200448', '0', '2020-05-01 06:13:18', NULL),
-(129, 'Evening sky / Preparations for the evening / The boy standing under the sky /', 'images/photo/Screenshot_2020-02-17-15-52-39-1.png', '20200448', '0', '2020-05-01 06:21:05', NULL),
-(130, 'Bed boy / Photos standing under the sky / Free download photos /', 'images/photo/Screenshot_2020-02-17-15-52-31-1.png', '20200448', '0', '2020-05-01 06:22:46', NULL),
-(131, 'qatar airport code | qatar airport shutdown | doha qatar airport |doha airport shopping /', 'images/photo/28578-317323.jpg', '20200451', '1', '2020-05-14 09:35:19', '2020-05-14 09:35:19'),
-(132, 'the tallest building in qatar |what is the tallest tower in qatar | what is the tallest building in doha| free download photo |doha cites qatar', 'images/photo/doha is in which country_6.jpg', '20200451', '1', '2020-05-14 09:43:06', '2020-05-14 09:43:06'),
-(133, 'doha tower and convention cente | free download largest building picture | doha qatar cites images |', 'images/photo/doha qatar cite.jpg', '20200451', '1', '2020-05-14 09:52:12', '2020-05-14 09:52:12'),
-(134, 'qater cites naite photos | qatar photos download | images of qatar airport | free download images qater cites', 'images/photo/qatar doha cite.jpg', '20200451', '1', '2020-05-14 09:59:51', '2020-05-14 09:59:51'),
-(135, 'Nightclubs in the capital of Qatar | qatar red light area |  Qatar night scene | freedownloadimage.com', 'images/photo/qater cite_1.jpg', '20200451', '1', '2020-05-16 08:17:46', '2020-05-16 08:17:46'),
-(136, 'qatar cities aunty photos-qatar airways photos cabin crew-qatar city photos|free download qater cite photo', 'images/photo/Qater_2.jpg', '20200451', '1', '2020-05-16 08:30:31', '2020-05-16 08:30:31'),
-(138, 'qatar city images | free download qatar city images | doha qatar | qatar city tour', 'images/photo/Untitled.jpg', '20200451', '1', '2020-05-16 08:36:19', '2020-05-16 08:36:19'),
-(139, 'qatar city images | free download qatar city images | doha qatar | qatar city tour', 'images/photo/Untitled_3.jpg', '20200451', '1', '2020-05-16 08:36:53', '2020-05-16 08:36:53'),
-(140, 'qatar city road  images / qatar photos downloadqatar airways pictures download /', 'images/photo/Untitled_1.jpg', '20200451', '1', '2020-05-16 08:39:53', '2020-05-16 08:39:53'),
-(141, 'hamad international airport advertising /qatar airways pictures download /  qatar flag images', 'images/photo/Untitled_2.jpg', '20200451', '1', '2020-05-16 08:41:58', '2020-05-16 08:41:58'),
-(142, 'COVID-19', 'images/photo/download.jpg', '1', '16', '2020-06-13 21:11:34', '2020-06-13 21:11:34'),
-(145, 'HTC', 'images/photo/computer-desk-laptop-stethoscope-48604.jpg', '1', '12', '2020-06-18 21:51:15', '2020-06-18 21:51:15'),
-(147, 'Fishermen /Beautful river /free download image', 'images/photo/free download image.jpg', '1', '20', '2020-06-23 12:30:30', '2020-06-23 12:30:30'),
-(148, 'Fishermen /Beautful river /free download image', 'images/photo/free download image.jpg', '1', '20', '2020-06-23 12:30:40', '2020-06-23 12:30:40');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `points`
---
-
-CREATE TABLE `points` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `point` double(15,2) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `points`
---
-
-INSERT INTO `points` (`id`, `point`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 100.00, 17, '2020-02-01 23:27:43', '2020-02-01 23:27:43'),
-(2, 4920.00, 2, '2020-02-01 23:27:43', '2020-02-01 23:27:43'),
-(3, 500.00, 15, '2020-02-01 23:27:43', '2020-02-01 23:27:43'),
-(4, 250.00, 21, '2020-02-25 00:26:23', '2020-02-25 00:26:23'),
-(5, 400.00, 22, '2020-02-26 01:00:25', '2020-02-26 01:00:25'),
-(6, 100.00, 23, '2020-02-26 02:30:08', '2020-02-26 02:30:08'),
-(7, 370.00, 24, NULL, NULL),
-(8, 0.00, 25, NULL, NULL),
-(9, 0.00, 35, NULL, NULL),
-(10, 150.00, 37, NULL, NULL),
-(11, 0.00, 20200339, NULL, NULL),
-(12, 300.00, 20200341, '2020-03-18 06:03:57', '2020-03-18 06:03:57'),
-(13, 40.00, 20200342, NULL, NULL),
-(14, 1000.00, 20200343, NULL, NULL),
-(15, 7550.00, 20200345, NULL, NULL),
-(16, 0.00, 20200365, NULL, NULL),
-(17, 70.00, 20200395, NULL, NULL),
-(18, 100.00, 20200415, NULL, NULL),
-(19, 0.00, 20200416, NULL, NULL),
-(20, 4770.00, 20200448, NULL, NULL),
-(21, 0.00, 20200452, NULL, NULL),
-(22, 2100.00, 20200454, NULL, NULL),
-(23, 0.00, 20200455, NULL, NULL),
-(24, 0.00, 20200457, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -416,42 +246,14 @@ INSERT INTO `profiles` (`id`, `photo`, `first_name`, `last_name`, `number`, `ema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promotions`
---
-
-CREATE TABLE `promotions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `promotions`
---
-
-INSERT INTO `promotions` (`id`, `photo`, `title`, `link`, `created_at`, `updated_at`) VALUES
-(6, 'images/promotion/81178882-hot-sale-banner-design-template-this-weekend-special-offer-big-sale-discount-up-to-60-off.jpg', 'মাশাআল্লাহ অনেক সুন্দর হয়েছে সবাইকে একসাথে দেখে ভাল লাগলো|মাশাআল্লাহ অনেক সুন্দর হয়েছে সবাইকে একসাথে দেখে ভাল লাগলো', 'www.offersite.com/offer/01', '2020-01-26 00:07:27', '2020-01-26 00:07:27'),
-(10, 'images/promotion/recent2.jpg', 'মাশাআল্লাহ অনেক সুন্দর হয়েছে সবাইকে একসাথে দেখে ভাল লাগলো', 'www.offersite.com/offer/01', '2020-02-02 00:25:09', '2020-02-02 00:25:09'),
-(11, 'images/promotion/recent1.jpg', 'Super Show Off', 'www.offersite.com/offer/01', '2020-02-02 00:25:32', '2020-02-02 00:25:32'),
-(12, 'images/promotion/recent3.jpg', 'Super Show Off', 'www.offersite.com/offer/01', '2020-02-02 00:25:51', '2020-02-02 00:25:51'),
-(13, 'images/promotion/recent3.jpg', 'Great Offer for You', 'www.offersite.com/offer/01', '2020-01-26 00:07:27', '2020-01-26 00:07:27'),
-(14, 'images/promotion/recent1.jpg', 'Super Show Off', 'www.offersite.com/offer/01', '2020-02-02 00:25:09', '2020-02-02 00:25:09'),
-(15, 'images/promotion/recent2.jpg', 'Super Show Off', 'www.offersite.com/offer/01', '2020-02-02 00:25:32', '2020-02-02 00:25:32'),
-(16, 'images/promotion/81178882-hot-sale-banner-design-template-this-weekend-special-offer-big-sale-discount-up-to-60-off.jpg', 'Super Show Off', 'www.offersite.com/offer/01', '2020-02-02 00:25:51', '2020-02-02 00:25:51'),
-(19, 'images/promotion/30b5351c5b5db172b92a4ffbd8edacf4.jpg', 'জিবনে প্রথম প্রেম ইচ্ছা করলে ও কখনো ভুলা যাই না', 'https://www.youtube.com/channel/UCqFH5k4uBVijwMSCbApoiJQ', '2020-05-09 07:58:38', '2020-05-09 07:58:38');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `favicon` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `header1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `header2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -470,8 +272,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `logo`, `header1`, `header2`, `facebook`, `twitter`, `youtube`, `address`, `phone`, `gmail`, `description`, `footer`, `created_at`, `updated_at`) VALUES
-(1, 'images/logo/logo.png', 'Welcome to our website', 'Free download photos of your choice', 'https://www.facebook.com/abdulaziz.rimon.73?ref=bookmarks', 'https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2FAbdulaz48904407&h=AT0N0w9m9bnB4ceIAIi0ANPWvwpvNndxJ1lTz9FqZQNX07LWb7nrjs3JsQSzvqq6sfZYeE6fZZ_odSNyIPvfbnzJsdbsGPVYJeuqzlKXDAb7bVXERvvH-EzK6wkbhwPj6O4RdgrvTtSIxrQ&s=1', 'https://www.youtube.com/channel/UCqFH5k4uBVijwMSCbApoiJQ', 'Doha,Qater', '+97474454868', 'abdulaziz74ah@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscingelit. Nulla ultrices nisi vitae laoreet dapibus. Etiampulvinar non justo at tincidunt. Cras turpis erat, ornare eget sem ut, tempus scelerisque lorem.', 'Copyright amrsoft© 2020. All Rights Reserved', NULL, NULL);
+INSERT INTO `settings` (`id`, `logo`, `favicon`, `title`, `header1`, `header2`, `facebook`, `twitter`, `youtube`, `address`, `phone`, `gmail`, `description`, `footer`, `created_at`, `updated_at`) VALUES
+(1, 'images/logo/logo.png', '', '', 'Welcome to our website', 'Free download photos of your choice', 'https://www.facebook.com/abdulaziz.rimon.73?ref=bookmarks', 'https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2FAbdulaz48904407&h=AT0N0w9m9bnB4ceIAIi0ANPWvwpvNndxJ1lTz9FqZQNX07LWb7nrjs3JsQSzvqq6sfZYeE6fZZ_odSNyIPvfbnzJsdbsGPVYJeuqzlKXDAb7bVXERvvH-EzK6wkbhwPj6O4RdgrvTtSIxrQ&s=1', 'https://www.youtube.com/channel/UCqFH5k4uBVijwMSCbApoiJQ', 'Doha,Qater', '+97474454868', 'abdulaziz74ah@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscingelit. Nulla ultrices nisi vitae laoreet dapibus. Etiampulvinar non justo at tincidunt. Cras turpis erat, ornare eget sem ut, tempus scelerisque lorem.', 'Copyright amrsoft© 2020. All Rights Reserved', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -495,36 +297,6 @@ INSERT INTO `sliders` (`id`, `slider`, `created_at`, `updated_at`) VALUES
 (10, 'images/slider/parallax2.jpg', '2020-01-30 20:38:40', '2020-01-30 20:38:40'),
 (11, 'images/slider/parallax3.jpg', '2020-01-30 20:38:47', '2020-01-30 20:38:47'),
 (12, 'images/slider/parallax4.jpg', '2020-01-30 20:38:54', '2020-01-30 20:38:54');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tags`
---
-
-CREATE TABLE `tags` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `tags`
---
-
-INSERT INTO `tags` (`id`, `tag`, `photo_id`, `created_at`, `updated_at`) VALUES
-(1, 'mac', '142', '2020-06-17 16:34:35', '2020-06-17 16:34:35'),
-(2, 'di', '142', '2020-06-17 16:34:35', '2020-06-17 16:34:35'),
-(3, 'cal', '142', '2020-06-17 16:34:35', '2020-06-17 16:34:35'),
-(4, 'medicine', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(5, 'You', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(6, 'Tube', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(7, 'Health', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(8, 'Office', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(9, 'New', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03'),
-(10, 'boss', '142', '2020-06-18 21:36:03', '2020-06-18 21:36:03');
 
 -- --------------------------------------------------------
 
@@ -569,7 +341,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lname`, `role`, `email`, `referral_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '', 'admin', 'admin@gmail.com', NULL, NULL, '$2y$10$jeu5vWf3rqlo5PH1LnTOCOp3pIM2epbUHShXt691OZM4AEZLGZKKG', 'i7y009S5CSdHEGRoTjQ2CTxH8dCbGUg8QIZiO41RnUNZ7PlkN9jKSJeXyU5o', '2019-12-30 23:18:24', '2019-12-30 23:18:24'),
+(1, 'Admin', '', 'admin', 'admin@gmail.com', NULL, NULL, '$2y$10$jeu5vWf3rqlo5PH1LnTOCOp3pIM2epbUHShXt691OZM4AEZLGZKKG', 'lgtbjjH38KYoPQK8J5UwxDoszZGArpJPCjlQnNUC1EPWssSkL4Z2JxvyA2pg', '2019-12-30 23:18:24', '2019-12-30 23:18:24'),
 (2, 'Saif', '', 'user', 'user@gmail.com', NULL, NULL, '$2y$10$jeu5vWf3rqlo5PH1LnTOCOp3pIM2epbUHShXt691OZM4AEZLGZKKG', 'u13NuO9TITBZP0U7vUPJatxwQlgpmNcSfBMOtJqvTS7oDXqbpIjdbext9aGP', '2019-12-30 23:18:24', '2019-12-30 23:18:24'),
 (3, 'robin', 'khan', 'user', 'robinkhan5854@gmail.com', NULL, NULL, '$2y$10$URELIBdn8a0IkexVsisRduxqq7B9/TYere2lyURlyxy8k24qbKlu2', NULL, '2020-01-04 21:46:59', '2020-01-04 21:46:59'),
 (4, 'rajib', 'mia', 'user', 'rajib@gmail.com', NULL, NULL, '$2y$10$DG35MPKVphmIyM9HrchXRu8Y4bYZUGWd9AoE2ieePkGTQSWxZEDLi', NULL, '2020-01-30 23:41:57', '2020-01-30 23:41:57'),
@@ -627,12 +399,6 @@ INSERT INTO `withdraw` (`id`, `user_id`, `point`, `amount`, `date`, `status`) VA
 --
 
 --
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -663,9 +429,9 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `movie`
+-- Indexes for table `partners`
 --
-ALTER TABLE `movie`
+ALTER TABLE `partners`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -673,18 +439,6 @@ ALTER TABLE `movie`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indexes for table `photos`
---
-ALTER TABLE `photos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `points`
---
-ALTER TABLE `points`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `policy`
@@ -699,12 +453,6 @@ ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `promotions`
---
-ALTER TABLE `promotions`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -714,12 +462,6 @@ ALTER TABLE `settings`
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tags`
---
-ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -744,12 +486,6 @@ ALTER TABLE `withdraw`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -779,25 +515,13 @@ ALTER TABLE `link_user`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `movie`
+-- AUTO_INCREMENT for table `partners`
 --
-ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `photos`
---
-ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
-
---
--- AUTO_INCREMENT for table `points`
---
-ALTER TABLE `points`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `partners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `policy`
@@ -812,12 +536,6 @@ ALTER TABLE `profiles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `promotions`
---
-ALTER TABLE `promotions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
@@ -828,12 +546,6 @@ ALTER TABLE `settings`
 --
 ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `tags`
---
-ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `terms`

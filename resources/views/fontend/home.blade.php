@@ -13,7 +13,6 @@
     @php
     $user_id=Auth::user()->id;
     $profile = App\Profile::where('user_id',$user_id)->first();
-    $points = App\Point::where('user_id',$user_id)->first();
     @endphp
     <div class="acount-header-btn">
       <a href="{{route('profile')}}"><img style="border-radius: 50%;height: 55px;width: 55px;margin-top: 16px;margin-left: 10px" src="{{$profile->photo}}" alt=""></a>
@@ -28,13 +27,6 @@
 
     </div>
     @endguest
-
-    @guest
-    <a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Free $</a>
-    @else
-       <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
-    @endguest
-
     <div class="search-header">
       <span class="open-search"><i class="la la-search"></i><i class="la la-close"></i></span>
       <form>
@@ -64,8 +56,7 @@
     </div>
     @endguest
    @guest
-     <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"><i class="la la-plus"></i> Free  <img style="border-radius: 50%;height: 17px;width: 20px;margin-left: 2px"  src="{{asset('/images/dollar.png')}}"></a>
-   @else
+       @else
    <div class="search-header">
         <div class="review-avatar">
           <a href="{{ route('logout') }}"  title="Logout"
@@ -83,7 +74,7 @@
    <div class="search-header">
    <div class="review-avatar"> <a href="{{route('profile')}}"><img style="border-radius: 50%;height: 55px;width: 55px;margin-top: 16px;margin-left: 10px" src="{{$profile->photo}}" alt=""></a> </div>
   </div>
-   <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
+   <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> </a>
 @endguest
 
     <nav class="header-menu">
@@ -109,22 +100,7 @@
               <h1>{{$settings->header1}}</h1>
               <span>{{$settings->header2}}</span>
             </div>
-            <div class="directory-searcher">
-              <form action="" method="post" enctype="multipart/form-data">
-                   {{csrf_field() }}
-                <div class="field"><input type="text" name="keyword" placeholder="Keywords"></div>
 
-                <div class="field">
-                  <select data-placeholder="All Categories" name="category" class="chosen-select" tabindex="2">
-                          <option value="All Categories">All Categories</option>
-
-                      </select>
-                </div>
-                <div class="field">
-                  <button type="submit"><i class="la la-search"></i>SEARCH</button>
-                </div>
-              </form>
-            </div>
             <div class="cat-lists">
               <!-- <ul>
                 <li><a href="#" title=""><i class="la la-car"></i><span>Cars</span></a></li>

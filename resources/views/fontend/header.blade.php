@@ -11,7 +11,6 @@
     @php
     $user_id=Auth::user()->id;
     $profile = App\Profile::where('user_id',$user_id)->first();
-      $points = App\Point::where('user_id',$user_id)->first();
     @endphp
     <div class="acount-header-btn">
 
@@ -26,11 +25,7 @@
       </form>
     </div>
     @endguest
-    @guest
-    <a href="add-listing.html" title="" class="view-all-blog"><i class="la la-plus"></i>Free  <span style="font-size:15px;margin-left: 6px;">$</span></a>
-    @else
-       <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
-    @endguest
+
 
     <div class="search-header">
       <span class="open-search"><i class="la la-search"></i><i class="la la-close"></i></span>
@@ -74,8 +69,7 @@
     </div>
     @endguest
 		@guest
-	 <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> <i class="la la-plus"></i>Free <span style="font-size:15px;margin-left: 6px;">$</span></a>
-		@else
+	 	@else
     <div class="search-header">
          <div class="review-avatar">
            <a href="{{ route('logout') }}" title="Logout"
@@ -93,26 +87,11 @@
     <div class="search-header">
     <div class="review-avatar"> <a href="{{route('profile')}}"><img style="border-radius: 50%;height: 55px;width: 55px;margin-top: 16px;margin-left: 10px" src="{{asset('/'.$profile->photo)}}" alt=""></a> </div>
    </div>
-	 <a href="{{ route('logout') }}"  onclick="event.preventDefault();	 document.getElementById('logout-form').submit();" title="" class="add-listing-btn"> Point : {{$points->point}}</a>
-  @endguest
+	@endguest
 			<nav class="header-menu">
         <ul>
           <li><a href="{{ route('home') }}" title="">Home</a></li>
-          <li><a href="{{ route('photo') }}" title="">Photos</a></li>
-          <!--<li><a href="{{ route('video') }}" title="">Videos</a></li>-->
-          <li><a href="{{ route('promotion') }}" title="">Promition</a></li>
-          <li><a href="{{ route('contact') }}" title="">Contact US</a></li>
-          @guest
-          @else
-          <li><a href="{{route('profile')}}" title="">Profile</a></li>
-          @endguest
-          <li>
-            <form class="form-inline my-2 my-lg-0"action="{{route('search.photo')}}" method="post" enctype="multipart/form-data">
-              {{csrf_field() }}
-               <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Search">
-              <button class="inline-btn my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </li>
+
         </ul>
 
 			</nav>
