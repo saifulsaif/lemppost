@@ -46,7 +46,6 @@ public function profile(Request $request)
    $info=auth()->user();
    $user_id=$request->input('user_id');
    $profile_info = DB::table('profiles')
-                  ->where('user_id',$user_id)
                   ->get();
     return response()->json($profile_info);
 }
