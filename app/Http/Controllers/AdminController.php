@@ -34,11 +34,6 @@ class AdminController extends Controller
 
      }
     public function index(){
-      if( Auth::user()){
-         if(Auth::user()->role=='user'){
-           return redirect()->route('home');
-         }
-      }
       $settings = DB::table('settings')->find('1');
       return view('admin.dashboard',compact('settings'));
     }

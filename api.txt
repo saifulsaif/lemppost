@@ -1,0 +1,4 @@
+post method
+http://localhost/lemppost/api/auth/login?email=user@gmail.com&password=12345678
+http://localhost/lemppost/api/auth/me?token=bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2F1dGhcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDIzMTY0MTEsImV4cCI6MTYwMjMyMDAxMSwibmJmIjoxNjAyMzE2NDExLCJqdGkiOiJHbE9HY25QcTNMQnVaT0M0Iiwic3ViIjoyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.PaUnnRDTmAYcEtaHEiLc4WB8m25I5TPG8oLVX9jNIns
+http://localhost/lemppost/api/auth/profile?user_id=2
